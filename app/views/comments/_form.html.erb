@@ -15,8 +15,8 @@
 	    <p></p>
 
 	    <div>
-	    	<b></b> <br />
-	    	
+	    	<b>Rating</b> <br />
+	    	<%= f.collection_select :rating, [1, 2, 3, 4, 5], :to_i, :to_i, include_blank: false %>
 	    </div>
 
 	    <p></p>
