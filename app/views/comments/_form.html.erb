@@ -1,14 +1,8 @@
 <center>
 	<%= form_for [@book, @book.comments.build], remote: true do |f| %>
-	    <div>
-	      <b>Author</b> <br /> 
-	      <%= f.text_field :author %>
-	    </div>
-	    
-	    <p></p>
 
 	    <div>
-	      <b>Text</b> <br />
+	      <b>Комментарий</b> <br />
 	      <%= f.text_area :body %>
 	    </div>
 

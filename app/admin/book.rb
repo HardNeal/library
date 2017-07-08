@@ -2,7 +2,7 @@ ActiveAdmin.register Book do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :name, :desc, :image, :testimonial, :user_id, :author_id
+permit_params :name, :desc, :image, :testimonial, :user_id, :author_id, :category_id
 
 	form do |f|
 	  f.inputs do 
@@ -12,6 +12,7 @@ permit_params :name, :desc, :image, :testimonial, :user_id, :author_id
 	  	f.input :image, :as => :file, :hint => image_tag(f.object.image.url(:thumb))
 	  	f.input :user
 	  	f.input :author_id
+	  	f.input :category
 	  end
 	  f.actions
 	end
@@ -26,6 +27,7 @@ permit_params :name, :desc, :image, :testimonial, :user_id, :author_id
 		column :name
 		column :desc
 		column :testimonial
+		column :category
 		column :user
 		column :author_id
 		# column :encrypted_password => Токен

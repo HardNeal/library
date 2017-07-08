@@ -1,5 +1,5 @@
 <% if @books.blank? %>
-  <h4>Таких книг нету "<%= params[:search] %>".</h4>
+  <h4>Я не смог найти книги на букву или слово => "<%= params[:search] %>". :(</h4>
 <% else %>
   <% @books.each do |book| %>
     <div class="col-sm-6 product-item ">

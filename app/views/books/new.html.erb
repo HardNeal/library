@@ -8,6 +8,7 @@
 	<p><%= f.file_field :image %></p>
 	<p>Автор книги</p>
 	<p><%= f.collection_select :author_id, Author.all, :id, :name, {} %></p>
+	<p><%= f.collection_select :category_id, Category.all, :id, :name, {} %></p>
 	<p><%= f.hidden_field :user_id, :value => current_user.id %></p>
 	<p><%= f.submit 'Опубликовать', class: 'btn btn-default' %></p>
 <% end %>

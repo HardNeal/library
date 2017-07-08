@@ -1,10 +1,3 @@
-<%= form_tag books_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-<% end %>
-
 <div class="row" style="margin: 0px;">
 
   <div class="col-sm-3">
@@ -14,8 +7,9 @@
       </div>
       <div class="panel-body">
         <ul>
-        
-            <li><a href="#">Название</a></li>
+          <% Author.all.each do |a| %>
+            <li><b><%= a.name %></b></li>
+          <% end %>
         </ul>
       </div>
     </div>
@@ -66,7 +60,9 @@
           <h3 class="panel-title">Категории</h3>
         </div>
         <div class="panel-body">
-          Разработка
+          <% Category.all.each do |a| %>
+            <li><b><%= a.name %></b></li>
+          <% end %>
         </div>
       </div>
   </div>

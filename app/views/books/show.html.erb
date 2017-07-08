@@ -11,6 +11,11 @@
       <% else %>
         <p>Author:  <i><b><%= @book.author.name %> <%= @book.author.surname %></b></i></p>
     	<% end %>
+      <% if @book.category.nil? %>
+        <p>Category:  <i><b>Unknown</b></i></p>
+      <% else %>
+        <p>Category:  <i><b><%= @book.category.name %></b></i></p>
+      <% end %>
       <% if @book.comments.count == 0 %>
         У этой книги нет оценок 
       <% else %>
@@ -66,14 +71,13 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title" id="myModalLabel">Вылеташка простаквашка</h4>
       </div>
       <div class="modal-body">
         <%= render 'comments/form' %>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
       </div>
     </div>
   </div>
