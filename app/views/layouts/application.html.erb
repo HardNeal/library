@@ -48,7 +48,7 @@
           <div style="margin-top: 10px; margin-left: 650px;">
             <%= form_tag books_path, :method => 'get' do %>
               <p>
-                <%= text_field_tag :search, params[:search] %>
+                <%= text_field_tag :search, params[:search], placeholder: 'Напишите букву или слово' %>
                 <%= submit_tag "Поиск", class: 'btn btn-default', :name => nil %>
               </p>
             <% end %>
