@@ -1,0 +1,64 @@
+<div class="row" style="margin: 0px;">
+
+  <div class="col-sm-3">
+    <div class="panel panel-default" id="cart">
+      <div class="panel-heading">
+        <h3 class="panel-title">Авторы</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        
+            <li><a href="#">Название</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="row">
+        <center><h1> All books </h1></center>
+        <hr>
+        <% Book.all.each do |book| %>
+
+         <div class="col-sm-6 product-item ">
+          <div class="panel panel-default" style="border-radius: 28px;">
+            <div class="panel-body" style="border-radius: 28px; border: 1px solid silver;">
+            <!-- rgba(10, 40, 109, 0.68) -->
+              <center>
+	              <fieldset class="rating">
+				    <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+				    <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+				    <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+				    <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+				    <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+				    <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+				    <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+				    <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+				    <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+				    <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+				  </fieldset>
+              <h3><%= book.name %></h3>
+              <p>Пользователь <b><%= book.user.name %></b></p>
+              <%= link_to 'Посмотреть книгу', book_path(book.id), class: 'btn btn-success' %>
+			  <p></p>
+              <div class="img_container">
+			  <%= image_tag book.image.url(:medium), style: 'border-radius: 15px;' %>
+              </div>
+             </center>
+            </div>
+          </div>
+        </div>
+
+        <% end %>
+    </div>
+  </div>
+  <div class="col-sm-3">
+      <div class="panel panel-default" id="cart">
+        <div class="panel-heading">
+          <h3 class="panel-title">Категории</h3>
+        </div>
+        <div class="panel-body">
+          Разработка
+        </div>
+      </div>
+  </div>
+</div>
