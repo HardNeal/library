@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-
   ActiveAdmin.routes(self)
   devise_for :users
 
-  resources :homepages, :categories
+  resources :homepages, :categories, :imgurs
 	  resources :books do
 	  	resources :comments
 	  end

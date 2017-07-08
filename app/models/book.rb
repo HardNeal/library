@@ -3,6 +3,7 @@ class Book < ApplicationRecord
   belongs_to :author
   belongs_to :category
   
+  has_many :imgurs
   has_many :comments
   
   has_attached_file :image,
