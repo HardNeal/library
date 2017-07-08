@@ -1,0 +1,36 @@
+<% if @books.blank? %>
+  <h4>Таких книг нету "<%= params[:search] %>".</h4>
+<% else %>
+  <% @books.each do |book| %>
+    <div class="col-sm-6 product-item ">
+          <div class="panel panel-default" style="border-radius: 28px;">
+            <div class="panel-body" style="border-radius: 28px; border: 1px solid silver;">
+            <!-- rgba(10, 40, 109, 0.68) -->
+              <center>
+              <% if book.comments.count == 0 %>
+                <fieldset class="rating" style="margin-top: 16px;">
+                  <b style="margin-left: 139px;">У книги нету рейтинга</b> <br />
+                </fieldset>
+              <% else %>
+                 <% quantity = book.comments.sum(:rating).to_f / book.comments.size %>
+                 <% quantity = quantity.to_i %>
+                <fieldset class="rating" style="margin-left: 200px;"> 
+                 <% quantity.times do %>  
+                  <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                 <% end %>
+                </fieldset>
+              <% end %>
+              <br />
+              <h3><%= book.name %></h3>
+              <p>Опубликовал <b><%= book.user.name %></b></p>
+              <%= link_to 'Посмотреть книгу', book_path(book.id), class: 'btn btn-success' %>
+        <p></p>
+              <div class="img_container">
+        <%= image_tag book.image.url(:medium), style: 'border-radius: 15px;' %>
+              </div>
+             </center>
+            </div>
+          </div>
+        </div>
+  <% end %>
+<% end %>

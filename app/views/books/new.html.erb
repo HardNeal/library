@@ -1,2 +1,14 @@
-<h1>Books#new</h1>
-<p>Find me in app/views/books/new.html.erb</p>
+<center>
+	<%= form_for @book do |f| %>
+	<p>Название книги</p>
+	<p><%= f.text_field :name %></p>
+	<p>Описание книги</p>
+	<p><%= f.text_area :desc %></p>
+	<p>Обложка книги</p>
+	<p><%= f.file_field :image %></p>
+	<p>Автор книги</p>
+	<p><%= f.collection_select :author_id, Author.all, :id, :name, {} %></p>
+	<p><%= f.hidden_field :user_id, :value => current_user.id %></p>
+	<p><%= f.submit 'Опубликовать', class: 'btn btn-default' %></p>
+<% end %>
+</center>

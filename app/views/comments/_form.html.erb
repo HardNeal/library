@@ -17,6 +17,8 @@
 	    <div>
 	    	<b>Rating</b> <br />
 	    	<%= f.collection_select :rating, [1, 2, 3, 4, 5], :to_i, :to_i, include_blank: false %>
+	    	<%= f.hidden_field :book_id, :value => @book.id %>
+	    	<%= f.hidden_field :user_id, :value => current_user.id %>
 	    </div>
 
 	    <p></p>

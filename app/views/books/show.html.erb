@@ -9,8 +9,24 @@
       <% if @book.author.nil? %>
         <p>Author:  <i><b>Unknown</b></i></p>
       <% else %>
-        <p>Author:  <i><b><%= @book.author.name %></b></i></p>
+        <p>Author:  <i><b><%= @book.author.name %> <%= @book.author.surname %></b></i></p>
     	<% end %>
+      <% if @book.comments.count == 0 %>
+        У этой книги нет оценок 
+      <% else %>
+        <p>
+         <% quantity = @book.comments.sum(:rating).to_f / @book.comments.size %>  
+        </p>
+  
+        <% quantity = quantity.to_i %>
+      
+        <fieldset class="rating">
+         <% quantity.times do %>  
+          <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+         <% end %>
+        </fieldset>
+
+      <% end %>
       <hr>
     </h5>
   <hr>
@@ -20,20 +36,21 @@
 <div>
   <div class="well" style="width: 60%; margin: 20px; margin-left: auto; background-color: rgba(245, 245, 245, 0); border: 1px solid rgba(0, 0, 0, 0.25);">
     <h5>
-      <hr>
       <b><i>All comments</i></b>
-      <p id="notice"><%= notice %></p>
+      <hr>
 
         <div id="comment-section">
           <ol id="comments">
             <%= render @book.comments %>
           </ol>
-
-          <center>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-              Create comment
-            </button>
-          </center>
+          <% if @check.count == 0 %>
+            <center>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                Оценить
+              </button>
+            </center>
+          <% else %>
+          <% end %>
         </div>
     </div>
 

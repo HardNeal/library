@@ -1,3 +1,8 @@
 <p>
-	<strong><%= comment.author %>: </strong> <i><%= comment.body %></i>
+	<strong>
+	<% quantity = comment.rating.to_i %>
+	<% quantity.times do %>
+		<div class="glyphicon glyphicon-star" style="color: #fbdc2b;"> </div> 
+	<% end %>
+	| <%= comment.user.name %>: </strong> <i><%= comment.body %></i>
 </p>
